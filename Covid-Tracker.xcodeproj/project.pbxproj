@@ -11,6 +11,7 @@
 		AB192AB22441CDD600C9F6EF /* CountryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB192AB12441CDD600C9F6EF /* CountryRow.swift */; };
 		AB192AB42441D3E200C9F6EF /* CovidStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB192AB32441D3E200C9F6EF /* CovidStateModel.swift */; };
 		AB47FFB62441DF140096E00C /* GlobalDataRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47FFB52441DF140096E00C /* GlobalDataRow.swift */; };
+		AB47FFB82441E5E30096E00C /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47FFB72441E5E30096E00C /* Country+CoreDataClass.swift */; };
 		AB4D224B2441DA9000B7B481 /* GlobalDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D224A2441DA9000B7B481 /* GlobalDataViewModel.swift */; };
 		AB547C2C2441B812008C4119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C2B2441B812008C4119 /* AppDelegate.swift */; };
 		AB547C2E2441B812008C4119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C2D2441B812008C4119 /* SceneDelegate.swift */; };
@@ -25,7 +26,6 @@
 		AB547C4C2441BC74008C4119 /* CovidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C4B2441BC74008C4119 /* CovidService.swift */; };
 		AB547C4F2441BCF7008C4119 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C4E2441BCF7008C4119 /* CoreDataManager.swift */; };
 		AB547C522441BE0A008C4119 /* CovidCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C512441BE0A008C4119 /* CovidCountryModel.swift */; };
-		AB547C552441C09D008C4119 /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C532441C09D008C4119 /* Country+CoreDataClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +33,7 @@
 		AB192AB12441CDD600C9F6EF /* CountryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRow.swift; sourceTree = "<group>"; };
 		AB192AB32441D3E200C9F6EF /* CovidStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidStateModel.swift; sourceTree = "<group>"; };
 		AB47FFB52441DF140096E00C /* GlobalDataRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDataRow.swift; sourceTree = "<group>"; };
+		AB47FFB72441E5E30096E00C /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = "<group>"; };
 		AB4D224A2441DA9000B7B481 /* GlobalDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDataViewModel.swift; sourceTree = "<group>"; };
 		AB547C282441B812008C4119 /* Covid-Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB547C2B2441B812008C4119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		AB547C4B2441BC74008C4119 /* CovidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		AB547C4E2441BCF7008C4119 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AB547C512441BE0A008C4119 /* CovidCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCountryModel.swift; sourceTree = "<group>"; };
-		AB547C532441C09D008C4119 /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +146,7 @@
 		AB547C4D2441BCD5008C4119 /* LocalData */ = {
 			isa = PBXGroup;
 			children = (
-				AB547C532441C09D008C4119 /* Country+CoreDataClass.swift */,
+				AB47FFB72441E5E30096E00C /* Country+CoreDataClass.swift */,
 				AB547C2F2441B812008C4119 /* Covid_Tracker.xcdatamodeld */,
 				AB547C4E2441BCF7008C4119 /* CoreDataManager.swift */,
 			);
@@ -239,7 +239,6 @@
 				AB547C472441B973008C4119 /* CovidRoute.swift in Sources */,
 				AB547C492441BA7B008C4119 /* APIProvider.swift in Sources */,
 				AB192AB22441CDD600C9F6EF /* CountryRow.swift in Sources */,
-				AB547C552441C09D008C4119 /* Country+CoreDataClass.swift in Sources */,
 				AB547C4C2441BC74008C4119 /* CovidService.swift in Sources */,
 				AB192AB42441D3E200C9F6EF /* CovidStateModel.swift in Sources */,
 				AB192AB02441CD5F00C9F6EF /* CountryHeaderRow.swift in Sources */,
@@ -248,6 +247,7 @@
 				AB547C4F2441BCF7008C4119 /* CoreDataManager.swift in Sources */,
 				AB547C2E2441B812008C4119 /* SceneDelegate.swift in Sources */,
 				AB4D224B2441DA9000B7B481 /* GlobalDataViewModel.swift in Sources */,
+				AB47FFB82441E5E30096E00C /* Country+CoreDataClass.swift in Sources */,
 				AB547C452441B876008C4119 /* APIRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
