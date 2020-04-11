@@ -16,8 +16,21 @@ final class GlobalDataViewModel: ObservableObject {
     
     @Published private(set) var globalData: CovidStates?
     
+    let loadData = PassthroughSubject<Void, Error>()
+    
+    init() {
+        getData()
+    }
+    
     func getData() {
-        covidService.getGlobalData()
+        loadData
+            .flatMap { [weak self] _ -> AnyPublisher<CovidStates?, Error> in
+                guard let self = self else {
+                    return Empty(completeImmediately: true)
+                        .eraseToAnyPublisher()
+                }
+                return self.covidService.getGlobalData()
+            }
             .replaceError(with: nil)
             .eraseToAnyPublisher()
             .receive(on: RunLoop.main)

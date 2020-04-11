@@ -37,9 +37,20 @@ struct GlobalDataView: View {
             .listStyle(GroupedListStyle())
             .environment(\.horizontalSizeClass, .regular)
             .onAppear {
-                self.viewModel.getData()
+                self.viewModel.loadData.send(())
             }
             .navigationBarTitle("Covid-19 tracker")
+            .navigationBarItems(trailing:
+                Button(
+                    action: {
+                        self.viewModel.loadData.send(())
+                    },
+                    label: {
+                        Image(systemName: "arrow.clockwise")
+                            .imageScale(.large)
+                    }
+                )
+            )
         }
     }
 }
