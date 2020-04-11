@@ -31,6 +31,7 @@
 		AB547C522441BE0A008C4119 /* CovidCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C512441BE0A008C4119 /* CovidCountryModel.swift */; };
 		AB69EBE22441FA12009527D9 /* CovidAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69EBE12441FA12009527D9 /* CovidAnnotation.swift */; };
 		AB69EBE42441FA44009527D9 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69EBE32441FA44009527D9 /* MapViewDelegate.swift */; };
+		AB69EBE6244227B3009527D9 /* APIProviderErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69EBE5244227B3009527D9 /* APIProviderErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		AB547C512441BE0A008C4119 /* CovidCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCountryModel.swift; sourceTree = "<group>"; };
 		AB69EBE12441FA12009527D9 /* CovidAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAnnotation.swift; sourceTree = "<group>"; };
 		AB69EBE32441FA44009527D9 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
+		AB69EBE5244227B3009527D9 /* APIProviderErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProviderErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			children = (
 				AB547C432441B866008C4119 /* Routes */,
 				AB547C482441BA7B008C4119 /* APIProvider.swift */,
+				AB69EBE5244227B3009527D9 /* APIProviderErrors.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				AB69EBE22441FA12009527D9 /* CovidAnnotation.swift in Sources */,
 				AB192AB42441D3E200C9F6EF /* CovidStateModel.swift in Sources */,
 				AB47FFC02441EB3F0096E00C /* MapContainerView.swift in Sources */,
+				AB69EBE6244227B3009527D9 /* APIProviderErrors.swift in Sources */,
 				AB192AB02441CD5F00C9F6EF /* CountryHeaderRow.swift in Sources */,
 				AB547C312441B812008C4119 /* Covid_Tracker.xcdatamodeld in Sources */,
 				AB547C332441B812008C4119 /* GlobalDataView.swift in Sources */,
