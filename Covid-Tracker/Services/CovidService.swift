@@ -18,23 +18,11 @@ final class CovidService {
     private var bag = Set<AnyCancellable>()
     
     func getGlobalData() -> AnyPublisher<CovidStates?, Error> {
-        let countriesData = apiProvider.getData(from: .getGlobalData)
-            .decode(type: [CovidCountryResponseModel].self, decoder: jsonDecoder)
-            
-        let confirmedData = apiProvider.getData(from: .getConfirmedData)
-            .decode(type: CovidStateModel.self, decoder: jsonDecoder)
-        
-        let deathsData = apiProvider.getData(from: .getDeathData)
-            .decode(type: CovidStateModel.self, decoder: jsonDecoder)
-        
-        let recoveredData = apiProvider.getData(from: .getRecoveredData)
-            .decode(type: CovidStateModel.self, decoder: jsonDecoder)
-        
-        let requests = Publishers.Zip4(countriesData, confirmedData, deathsData, recoveredData)
+        let requests = Publishers.Zip4(countriesData(), confirmedData(), deathsData(), recoveredData())
             .share()
         
         requests
-            .map({ countriesData, confirmedData, deathsData, recoveredData -> CovidCountryResponse in
+            .map({ countriesData, _, _, _ -> CovidCountryResponse in
                 return countriesData
             })
             .mapError({ (error) -> Error in
@@ -51,13 +39,42 @@ final class CovidService {
             .store(in: &bag)
         
         return requests
-            .map { countriesData, confirmedData, deathsData, recoveredData -> CovidStates in
+            .map { _, confirmedData, deathsData, recoveredData -> CovidStates in
                 return CovidStates(confirmed: confirmedData, deaths: deathsData, recovered: recoveredData)
             }
             .eraseToAnyPublisher()
     }
 }
 
+// MARK: - Requests
+private extension CovidService {
+    
+    func countriesData() -> AnyPublisher<CovidCountryResponse, Error> {
+        return apiProvider.getData(from: .getGlobalData)
+            .decode(type: CovidCountryResponse.self, decoder: jsonDecoder)
+            .eraseToAnyPublisher()
+    }
+    
+    func confirmedData() -> AnyPublisher<CovidStateModel, Error> {
+        return apiProvider.getData(from: .getConfirmedData)
+            .decode(type: CovidStateModel.self, decoder: jsonDecoder)
+            .eraseToAnyPublisher()
+    }
+    
+    func deathsData() -> AnyPublisher<CovidStateModel, Error> {
+        return apiProvider.getData(from: .getDeathData)
+            .decode(type: CovidStateModel.self, decoder: jsonDecoder)
+            .eraseToAnyPublisher()
+    }
+    
+    func recoveredData() -> AnyPublisher<CovidStateModel, Error> {
+        return apiProvider.getData(from: .getRecoveredData)
+            .decode(type: CovidStateModel.self, decoder: jsonDecoder)
+            .eraseToAnyPublisher()
+    }
+}
+
+// MARK: - Local Data
 private extension CovidService {
     
     func checkCountriesAndUpdate(_ countries: CovidCountryResponse) {
