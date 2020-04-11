@@ -9,6 +9,7 @@
 
 import Foundation
 import CoreData
+import CoreLocation
 
 public class Country: NSManagedObject {
 
@@ -21,6 +22,11 @@ public class Country: NSManagedObject {
         localCountry.deaths = Int64(country.deaths)
         localCountry.recovered = Int64(country.recovered)
         localCountry.active = Int64(country.active)
+        guard let latitude = country.latitude, let longitude = country.longitude else {
+            return
+        }
+        localCountry.latitude = latitude
+        localCountry.longitude = longitude
     }
     
     func update(country: CovidCountryModel) {
@@ -30,6 +36,15 @@ public class Country: NSManagedObject {
         deaths = Int64(country.deaths)
         recovered = Int64(country.recovered)
         active = Int64(country.active)
+        guard let latitude = country.latitude, let longitude = country.longitude else {
+            return
+        }
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+    
+    var coordinates: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Country> {
@@ -42,4 +57,6 @@ public class Country: NSManagedObject {
     @NSManaged public var recovered: Int64
     @NSManaged public var deaths: Int64
     @NSManaged public var active: Int64
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
 }

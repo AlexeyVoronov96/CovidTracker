@@ -36,6 +36,10 @@ final class CovidService {
             .map({ countriesData, confirmedData, deathsData, recoveredData -> CovidCountryResponse in
                 return countriesData
             })
+            .mapError({ (error) -> Error in
+                print(error)
+                return error
+            })
             .replaceError(with: [])
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()

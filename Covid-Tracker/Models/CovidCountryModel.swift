@@ -20,6 +20,8 @@ struct CovidCountryModel: Decodable {
     let deaths: Int
     let recovered: Int
     let active: Int
+    let latitude: Double?
+    let longitude: Double?
     
     enum CodingKeys: String, CodingKey {
         case id = "OBJECTID"
@@ -28,5 +30,7 @@ struct CovidCountryModel: Decodable {
         case deaths = "Deaths"
         case recovered = "Recovered"
         case active = "Active"
+        case latitude = "Lat"
+        case longitude = "Long_"
     }
 }

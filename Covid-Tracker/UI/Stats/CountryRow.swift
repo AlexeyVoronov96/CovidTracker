@@ -14,16 +14,17 @@ struct CountryRow: View {
     var body: some View {
         HStack(alignment: .center) {
             Text(verbatim: country.name ?? "")
-                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                .font(.headline)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             Text(verbatim: "\(country.confirmed)")
-                .frame(width: 90)
+                .frame(width: 80)
             Divider()
             Text(verbatim: "\(country.deaths)")
-                .frame(width: 60)
+                .frame(width: 80)
             Divider()
             Text(verbatim: "\(country.recovered)")
-                .frame(width: 90)
+                .frame(width: 80)
         }
     }
 }

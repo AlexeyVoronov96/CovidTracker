@@ -12,16 +12,20 @@ struct CountryHeaderRow: View {
     var body: some View {
         HStack(alignment: .center) {
             Text(verbatim: "Country")
-                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             Text(verbatim: "Confirmed")
-                .frame(width: 90)
+                .font(.subheadline)
+                .frame(width: 80)
             Divider()
             Text(verbatim: "Deaths")
-                .frame(width: 60)
+                .font(.subheadline)
+                .frame(width: 80)
             Divider()
             Text(verbatim: "Recovered")
-                .frame(width: 90)
+                .font(.subheadline)
+                .frame(width: 80)
         }
     }
 }
