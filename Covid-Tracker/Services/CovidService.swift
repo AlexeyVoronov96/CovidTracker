@@ -31,6 +31,7 @@ final class CovidService {
             .decode(type: CovidStateModel.self, decoder: jsonDecoder)
         
         let requests = Publishers.Zip4(countriesData, confirmedData, deathsData, recoveredData)
+            .share()
         
         requests
             .map({ countriesData, confirmedData, deathsData, recoveredData -> CovidCountryResponse in

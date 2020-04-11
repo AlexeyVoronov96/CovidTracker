@@ -15,7 +15,6 @@
 		AB47FFBA2441E8890096E00C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47FFB92441E8890096E00C /* TabBarView.swift */; };
 		AB47FFBE2441E97E0096E00C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47FFBD2441E97E0096E00C /* MapView.swift */; };
 		AB47FFC02441EB3F0096E00C /* MapContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47FFBF2441EB3F0096E00C /* MapContainerView.swift */; };
-		AB47FFC22441EB4E0096E00C /* MapContainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47FFC12441EB4E0096E00C /* MapContainerViewModel.swift */; };
 		AB4D224B2441DA9000B7B481 /* GlobalDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D224A2441DA9000B7B481 /* GlobalDataViewModel.swift */; };
 		AB547C2C2441B812008C4119 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C2B2441B812008C4119 /* AppDelegate.swift */; };
 		AB547C2E2441B812008C4119 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C2D2441B812008C4119 /* SceneDelegate.swift */; };
@@ -30,6 +29,8 @@
 		AB547C4C2441BC74008C4119 /* CovidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C4B2441BC74008C4119 /* CovidService.swift */; };
 		AB547C4F2441BCF7008C4119 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C4E2441BCF7008C4119 /* CoreDataManager.swift */; };
 		AB547C522441BE0A008C4119 /* CovidCountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB547C512441BE0A008C4119 /* CovidCountryModel.swift */; };
+		AB69EBE22441FA12009527D9 /* CovidAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69EBE12441FA12009527D9 /* CovidAnnotation.swift */; };
+		AB69EBE42441FA44009527D9 /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69EBE32441FA44009527D9 /* MapViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +42,6 @@
 		AB47FFB92441E8890096E00C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		AB47FFBD2441E97E0096E00C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		AB47FFBF2441EB3F0096E00C /* MapContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerView.swift; sourceTree = "<group>"; };
-		AB47FFC12441EB4E0096E00C /* MapContainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapContainerViewModel.swift; sourceTree = "<group>"; };
 		AB4D224A2441DA9000B7B481 /* GlobalDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalDataViewModel.swift; sourceTree = "<group>"; };
 		AB547C282441B812008C4119 /* Covid-Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB547C2B2441B812008C4119 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +58,8 @@
 		AB547C4B2441BC74008C4119 /* CovidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		AB547C4E2441BCF7008C4119 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		AB547C512441BE0A008C4119 /* CovidCountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidCountryModel.swift; sourceTree = "<group>"; };
+		AB69EBE12441FA12009527D9 /* CovidAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAnnotation.swift; sourceTree = "<group>"; };
+		AB69EBE32441FA44009527D9 /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,6 @@
 			children = (
 				AB47FFBD2441E97E0096E00C /* MapView.swift */,
 				AB47FFBF2441EB3F0096E00C /* MapContainerView.swift */,
-				AB47FFC12441EB4E0096E00C /* MapContainerViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -126,6 +127,7 @@
 				AB547C4D2441BCD5008C4119 /* LocalData */,
 				AB547C502441BDF9008C4119 /* Models */,
 				AB547C4A2441BC61008C4119 /* Services */,
+				AB69EBE02441F9FE009527D9 /* Helpers */,
 				AB192AAE2441CCD000C9F6EF /* UI */,
 				AB547C2B2441B812008C4119 /* AppDelegate.swift */,
 				AB547C2D2441B812008C4119 /* SceneDelegate.swift */,
@@ -188,6 +190,15 @@
 				AB192AB32441D3E200C9F6EF /* CovidStateModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AB69EBE02441F9FE009527D9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AB69EBE12441FA12009527D9 /* CovidAnnotation.swift */,
+				AB69EBE32441FA44009527D9 /* MapViewDelegate.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +278,10 @@
 				AB547C472441B973008C4119 /* CovidRoute.swift in Sources */,
 				AB547C492441BA7B008C4119 /* APIProvider.swift in Sources */,
 				AB192AB22441CDD600C9F6EF /* CountryRow.swift in Sources */,
+				AB69EBE42441FA44009527D9 /* MapViewDelegate.swift in Sources */,
 				AB547C4C2441BC74008C4119 /* CovidService.swift in Sources */,
 				AB47FFBE2441E97E0096E00C /* MapView.swift in Sources */,
+				AB69EBE22441FA12009527D9 /* CovidAnnotation.swift in Sources */,
 				AB192AB42441D3E200C9F6EF /* CovidStateModel.swift in Sources */,
 				AB47FFC02441EB3F0096E00C /* MapContainerView.swift in Sources */,
 				AB192AB02441CD5F00C9F6EF /* CountryHeaderRow.swift in Sources */,
@@ -276,7 +289,6 @@
 				AB547C332441B812008C4119 /* GlobalDataView.swift in Sources */,
 				AB47FFBA2441E8890096E00C /* TabBarView.swift in Sources */,
 				AB547C4F2441BCF7008C4119 /* CoreDataManager.swift in Sources */,
-				AB47FFC22441EB4E0096E00C /* MapContainerViewModel.swift in Sources */,
 				AB547C2E2441B812008C4119 /* SceneDelegate.swift in Sources */,
 				AB4D224B2441DA9000B7B481 /* GlobalDataViewModel.swift in Sources */,
 				AB47FFB82441E5E30096E00C /* Country+CoreDataClass.swift in Sources */,

@@ -26,7 +26,9 @@ struct GlobalDataView: View {
                     }
                 }
                 Section {
-                    CountryHeaderRow()
+                    if !countries.isEmpty {
+                        CountryHeaderRow()
+                    }
                     ForEach(countries, id: \.self) { country in
                         CountryRow(country: country)
                     }

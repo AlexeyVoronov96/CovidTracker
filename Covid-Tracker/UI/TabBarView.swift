@@ -16,16 +16,23 @@ struct TabBarView: View {
             GlobalDataView()
                 .environment(\.managedObjectContext, context)
                 .tabItem {
-                    Text(verbatim: "Stats")
-                        .font(.system(size: 22))
-            }
+                    VStack {
+                        Image(systemName: "waveform.path.ecg")
+                            .font(.system(size: 22))
+                        Text(verbatim: "Statistic")
+                    }
+                }
             
             MapContainerView()
                 .environment(\.managedObjectContext, context)
                 .tabItem {
-                    Text(verbatim: "Map")
-                        .font(.system(size: 22))
+                    VStack {
+                        Image(systemName: "map.fill")
+                            .font(.system(size: 22))
+                        Text(verbatim: "Map")
+                    }
                 }
         }
+        .accentColor(.red)
     }
 }
