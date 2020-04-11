@@ -15,17 +15,17 @@ struct CountryHeaderRow: View {
                 .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
-            Text(verbatim: "Confirmed")
+            Text(verbatim: "Conf.")
                 .font(.subheadline)
-                .frame(width: 80)
+                .frame(width: 60)
             Divider()
             Text(verbatim: "Deaths")
                 .font(.subheadline)
-                .frame(width: 80)
+                .frame(width: 60)
             Divider()
-            Text(verbatim: "Recovered")
+            Text(verbatim: "Recov.")
                 .font(.subheadline)
-                .frame(width: 80)
+                .frame(width: 60)
         }
     }
 }

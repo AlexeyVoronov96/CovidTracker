@@ -35,6 +35,7 @@ struct GlobalDataView: View {
                 }
             }
             .listStyle(GroupedListStyle())
+            .environment(\.horizontalSizeClass, .regular)
             .onAppear {
                 self.viewModel.getData()
             }
