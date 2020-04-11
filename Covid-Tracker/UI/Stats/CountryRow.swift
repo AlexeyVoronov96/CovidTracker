@@ -28,9 +28,3 @@ struct CountryRow: View {
         }
     }
 }
-
-//struct CountryRow_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CountryRow()
-//    }
-//}
