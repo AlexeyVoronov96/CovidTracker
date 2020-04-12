@@ -18,12 +18,15 @@ struct CountryRow: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
             Text(verbatim: "\(country.confirmed)")
+                .font(.subheadline)
                 .frame(width: 60)
             Divider()
             Text(verbatim: "\(country.deaths)")
+                .font(.subheadline)
                 .frame(width: 60)
             Divider()
             Text(verbatim: "\(country.recovered)")
+                .font(.subheadline)
                 .frame(width: 60)
         }
     }

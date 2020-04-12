@@ -12,7 +12,7 @@ import Combine
 struct GlobalDataView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Country.entity(), sortDescriptors: [
-        NSSortDescriptor(key: "confirmed", ascending: false)
+        NSSortDescriptor(key: "active", ascending: false)
     ]) var countries: FetchedResults<Country>
     
     @ObservedObject var viewModel = GlobalDataViewModel()

@@ -32,6 +32,14 @@ struct TabBarView: View {
                         Text(verbatim: "Map")
                     }
                 }
+            CovidFAQView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "info.circle")
+                            .font(.system(size: 22))
+                        Text(verbatim: "Info")
+                    }
+                }
         }
         .accentColor(.red)
     }

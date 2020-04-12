@@ -13,6 +13,7 @@ import CoreData
 final class CovidService {
     
     private let apiProvider = APIProvider<CovidRoute>()
+    private let faqApiProvider = APIProvider<CovidFAQRoute>()
     private let coreDataManager = CoreDataManager.shared
     private let jsonDecoder = JSONDecoder()
     private var bag = Set<AnyCancellable>()
@@ -25,6 +26,12 @@ final class CovidService {
             .map { _, confirmedData, deathsData, recoveredData -> CovidStates in
                 CovidStates(confirmed: confirmedData, deaths: deathsData, recovered: recoveredData)
             }
+            .eraseToAnyPublisher()
+    }
+    
+    func getFAQData() -> AnyPublisher<CovidFAQResponse, Error> {
+        return faqApiProvider.getData(from: .getCovidFAQData)
+            .decode(type: CovidFAQResponse.self, decoder: jsonDecoder)
             .eraseToAnyPublisher()
     }
 }

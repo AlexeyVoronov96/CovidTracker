@@ -28,10 +28,10 @@ final class GlobalDataViewModel: ObservableObject {
     let loadData = PassthroughSubject<Void, Error>()
     
     init() {
-        getData()
+        configure()
     }
     
-    func getData() {
+    func configure() {
         loadData
             .flatMap { [weak self] _ -> AnyPublisher<CovidStates?, Error> in
                 guard let self = self else {
