@@ -11,6 +11,14 @@ import MapKit
 
 final class MapViewDelegate: NSObject, MKMapViewDelegate {
 
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let covidAnnotation = annotation as? CovidAnnotation else { return nil }
+        let annotationView = MKMarkerAnnotationView()
+        annotationView.markerTintColor = covidAnnotation.color
+        annotationView.glyphImage = #imageLiteral(resourceName: "covid")
+        return annotationView
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let overlay = overlay as? MKCircle else { return MKOverlayRenderer() }
         

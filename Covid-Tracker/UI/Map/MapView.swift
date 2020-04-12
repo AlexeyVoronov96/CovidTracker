@@ -25,9 +25,7 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         let annotations = countries
-            .map {
-                CovidAnnotation(title: $0.name, coordinate: $0.coordinates)
-            }
+            .map { CovidAnnotation(country: $0) }
         
         let overlays = countries
             .map {

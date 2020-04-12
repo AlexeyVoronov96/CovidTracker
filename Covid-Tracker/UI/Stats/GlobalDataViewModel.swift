@@ -20,7 +20,7 @@ final class GlobalDataViewModel: ObservableObject {
     }
     
     var currentDateString: String {
-        return dateFormatter.string(from: Date()) 
+        return dateFormatter.string(from: Date())
     }
     
     @Published private(set) var globalData: CovidStates?
