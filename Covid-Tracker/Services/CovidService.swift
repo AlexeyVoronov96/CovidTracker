@@ -18,25 +18,12 @@ final class CovidService {
     private var bag = Set<AnyCancellable>()
     
     func getGlobalData() -> AnyPublisher<CovidStates?, Error> {
-        let requests = Publishers.Zip4(countriesData(), confirmedData(), deathsData(), recoveredData())
-            .share()
-        
-        requests
-            .map({ countriesData, _, _, _ -> CovidCountryResponse in
-                return countriesData
-            })
-            .replaceError(with: [])
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
-            .sink { [weak self] countries in
-                guard let self = self else { return }
-                self.checkCountriesAndUpdate(countries)
-            }
-            .store(in: &bag)
+        let requests = Publishers
+            .Zip4(countriesData(), confirmedData(), deathsData(), recoveredData())
         
         return requests
             .map { _, confirmedData, deathsData, recoveredData -> CovidStates in
-                return CovidStates(confirmed: confirmedData, deaths: deathsData, recovered: recoveredData)
+                CovidStates(confirmed: confirmedData, deaths: deathsData, recovered: recoveredData)
             }
             .eraseToAnyPublisher()
     }
@@ -46,9 +33,21 @@ final class CovidService {
 private extension CovidService {
     
     func countriesData() -> AnyPublisher<CovidCountryResponse, Error> {
-        return apiProvider.getData(from: .getGlobalData)
+        let request =  apiProvider.getData(from: .getGlobalData)
             .decode(type: CovidCountryResponse.self, decoder: jsonDecoder)
+            .share()
             .eraseToAnyPublisher()
+        
+        request
+            .replaceError(with: [])
+            .receive(on: RunLoop.main)
+            .sink { [weak self] countries in
+                guard let self = self else { return }
+                self.checkCountriesAndUpdate(countries)
+            }
+            .store(in: &bag)
+        
+        return request
     }
     
     func confirmedData() -> AnyPublisher<CovidStateModel, Error> {

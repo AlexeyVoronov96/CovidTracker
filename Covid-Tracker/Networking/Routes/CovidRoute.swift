@@ -13,7 +13,6 @@ enum CovidRoute: APIRoute {
     case getConfirmedData
     case getDeathData
     case getRecoveredData
-    case getCountryData(String)
     
     var baseURL: String {
         return "api.kawalcorona.com"
@@ -21,8 +20,6 @@ enum CovidRoute: APIRoute {
     
     var path: String? {
         switch self {
-        case let .getCountryData(country):
-            return country
         case .getConfirmedData:
             return "/positif"
         case .getDeathData:
@@ -33,6 +30,4 @@ enum CovidRoute: APIRoute {
             return nil
         }
     }
-    
-    var headers: [String : String] { [:] }
 }

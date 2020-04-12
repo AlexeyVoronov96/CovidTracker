@@ -13,6 +13,15 @@ final class GlobalDataViewModel: ObservableObject {
     private let covidService = CovidService()
     
     private var bag = Set<AnyCancellable>()
+    private var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy, h:mm a"
+        return dateFormatter
+    }
+    
+    var currentDateString: String {
+        return dateFormatter.string(from: Date()) 
+    }
     
     @Published private(set) var globalData: CovidStates?
     

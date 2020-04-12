@@ -21,7 +21,7 @@ struct GlobalDataView: View {
         NavigationView {
             List {
                 if viewModel.globalData != nil {
-                    Section {
+                    Section(header: Text(verbatim: "Last update: " + viewModel.currentDateString)) {
                         GlobalDataRow(globalData: viewModel.globalData!)
                     }
                 }

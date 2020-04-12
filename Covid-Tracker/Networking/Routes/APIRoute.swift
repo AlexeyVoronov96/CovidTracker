@@ -12,6 +12,4 @@ protocol APIRoute {
     var baseURL: String { get }
     
     var path: String? { get }
-    
-    var headers: [String: String] { get }
 }

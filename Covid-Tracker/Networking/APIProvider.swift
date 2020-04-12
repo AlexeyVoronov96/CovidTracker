@@ -38,13 +38,9 @@ private extension APIProvider {
             return nil
         }
 
-        var urlRequest = URLRequest(url: url,
+        return URLRequest(url: url,
                                     cachePolicy: .reloadRevalidatingCacheData,
                                     timeoutInterval: 30)
-        
-        endpoint.headers.forEach { urlRequest.setValue($0.value, forHTTPHeaderField: $0.key) }
-        
-        return urlRequest
     }
     
     // MARK: - Getting data
