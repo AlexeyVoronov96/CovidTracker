@@ -1,4 +1,4 @@
-# CovidTracker_SwiftUI_and_Combine
+# CovidTracker
 ## Statistic
 ![Statistic](https://github.com/AlexeyVoronov96/CovidTracker_SwiftUI_and_Combine/blob/master/ScreenShots/Statistic.png)
 ## Map
