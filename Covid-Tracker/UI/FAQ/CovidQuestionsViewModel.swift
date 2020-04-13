@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 final class CovidFAQViewModel: ObservableObject {
-    private let covidService = CovidService()
+    private let covidFAQService = CovidFAQService()
     
     private var bag = Set<AnyCancellable>()
     
@@ -29,7 +29,7 @@ final class CovidFAQViewModel: ObservableObject {
                     return Empty(completeImmediately: true)
                         .eraseToAnyPublisher()
                 }
-                return self.covidService.getFAQData()
+                return self.covidFAQService.getFAQData()
             }
             .map { $0.data }
             .replaceError(with: [])

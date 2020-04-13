@@ -10,7 +10,9 @@ import Foundation
 import Combine
 
 final class GlobalDataViewModel: ObservableObject {
+    
     private let covidService = CovidService()
+    private let covidDBService = CovidDBService()
     
     private var bag = Set<AnyCancellable>()
     private var dateFormatter: DateFormatter {
@@ -38,12 +40,38 @@ final class GlobalDataViewModel: ObservableObject {
                     return Empty(completeImmediately: true)
                         .eraseToAnyPublisher()
                 }
-                return self.covidService.getGlobalData()
+                return self.getData()
             }
             .replaceError(with: nil)
             .eraseToAnyPublisher()
             .receive(on: RunLoop.main)
             .assign(to: \.globalData, on: self)
             .store(in: &bag)
+    }
+    
+    func getData() -> AnyPublisher<CovidStates?, Error> {
+        let globalDataRequest = covidService.countriesData()
+        let confirmedRequest = covidService.confirmedData()
+        let deathsRequest = covidService.deathsData()
+        let recoveredRequest = covidService.recoveredData()
+        
+        let requests = Publishers
+            .Zip4(globalDataRequest, confirmedRequest, deathsRequest, recoveredRequest)
+            .share()
+        
+        requests
+            .map { $0.0 }
+            .receive(on: RunLoop.main)
+            .replaceError(with: [])
+            .eraseToAnyPublisher()
+            .sink { [weak self] countries in
+                guard let self = self else { return }
+                self.covidDBService.checkCountriesAndUpdate(countries)
+            }
+            .store(in: &bag)
+        
+        return requests
+            .map { CovidStates(confirmed: $0.1, deaths: $0.2, recovered: $0.3) }
+            .eraseToAnyPublisher()
     }
 }

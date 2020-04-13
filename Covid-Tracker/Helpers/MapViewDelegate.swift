@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 final class MapViewDelegate: NSObject, MKMapViewDelegate {
-
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let covidAnnotation = annotation as? CovidAnnotation else { return nil }
         let annotationView = MKMarkerAnnotationView()
