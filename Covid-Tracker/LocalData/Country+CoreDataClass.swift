@@ -22,6 +22,7 @@ public class Country: NSManagedObject {
         localCountry.deaths = Int64(country.deaths)
         localCountry.recovered = Int64(country.recovered)
         localCountry.active = Int64(country.active)
+        localCountry.newCases = 0
         guard let latitude = country.latitude, let longitude = country.longitude else {
             return
         }
@@ -35,7 +36,9 @@ public class Country: NSManagedObject {
         confirmed = Int64(country.confirmed)
         deaths = Int64(country.deaths)
         recovered = Int64(country.recovered)
-        active = Int64(country.active)
+        let newActive = Int64(country.active)
+        newCases = (newActive == active) ? 0 : (newActive - active)
+        active = newActive
         guard let latitude = country.latitude, let longitude = country.longitude else {
             return
         }
@@ -57,6 +60,7 @@ public class Country: NSManagedObject {
     @NSManaged public var recovered: Int64
     @NSManaged public var deaths: Int64
     @NSManaged public var active: Int64
+    @NSManaged public var newCases: Int64
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
 }

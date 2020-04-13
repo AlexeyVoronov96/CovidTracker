@@ -34,6 +34,8 @@
 		AB69EBE6244227B3009527D9 /* APIProviderErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB69EBE5244227B3009527D9 /* APIProviderErrors.swift */; };
 		AB7B79D624449A9D005F21AD /* CovidDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B79D524449A9D005F21AD /* CovidDBService.swift */; };
 		AB7B79D824449B29005F21AD /* CovidFAQService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B79D724449B29005F21AD /* CovidFAQService.swift */; };
+		AB7B79DA2444A7A5005F21AD /* CountryDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B79D92444A7A5005F21AD /* CountryDataView.swift */; };
+		AB7B79DC2444A93E005F21AD /* Int64+NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB7B79DB2444A93E005F21AD /* Int64+NumberFormatter.swift */; };
 		ABD34CE32443307000F32B84 /* CovidFAQRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD34CE22443307000F32B84 /* CovidFAQRoute.swift */; };
 		ABD34CE52443312400F32B84 /* CovidFAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD34CE42443312400F32B84 /* CovidFAQModel.swift */; };
 		ABD34CE82443323F00F32B84 /* CovidQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD34CE72443323F00F32B84 /* CovidQuestionsView.swift */; };
@@ -71,6 +73,9 @@
 		AB69EBE5244227B3009527D9 /* APIProviderErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProviderErrors.swift; sourceTree = "<group>"; };
 		AB7B79D524449A9D005F21AD /* CovidDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidDBService.swift; sourceTree = "<group>"; };
 		AB7B79D724449B29005F21AD /* CovidFAQService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFAQService.swift; sourceTree = "<group>"; };
+		AB7B79D92444A7A5005F21AD /* CountryDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataView.swift; sourceTree = "<group>"; };
+		AB7B79DB2444A93E005F21AD /* Int64+NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int64+NumberFormatter.swift"; sourceTree = "<group>"; };
+		AB7B79DD2444AA68005F21AD /* Covid-Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Covid-Tracker.entitlements"; sourceTree = "<group>"; };
 		ABD34CE22443307000F32B84 /* CovidFAQRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFAQRoute.swift; sourceTree = "<group>"; };
 		ABD34CE42443312400F32B84 /* CovidFAQModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFAQModel.swift; sourceTree = "<group>"; };
 		ABD34CE72443323F00F32B84 /* CovidQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidQuestionsView.swift; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 				AB192AB12441CDD600C9F6EF /* CountryRow.swift */,
 				AB4D224A2441DA9000B7B481 /* GlobalDataViewModel.swift */,
 				AB47FFB52441DF140096E00C /* GlobalDataRow.swift */,
+				AB7B79D92444A7A5005F21AD /* CountryDataView.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -140,6 +146,7 @@
 		AB547C2A2441B812008C4119 /* Covid-Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				AB7B79DD2444AA68005F21AD /* Covid-Tracker.entitlements */,
 				AB547C422441B85C008C4119 /* Networking */,
 				AB547C4D2441BCD5008C4119 /* LocalData */,
 				AB547C502441BDF9008C4119 /* Models */,
@@ -219,6 +226,7 @@
 			children = (
 				AB69EBE12441FA12009527D9 /* CovidAnnotation.swift */,
 				AB69EBE32441FA44009527D9 /* MapViewDelegate.swift */,
+				AB7B79DB2444A93E005F21AD /* Int64+NumberFormatter.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				AB547C522441BE0A008C4119 /* CovidCountryModel.swift in Sources */,
 				AB47FFB62441DF140096E00C /* GlobalDataRow.swift in Sources */,
 				ABD34CE82443323F00F32B84 /* CovidQuestionsView.swift in Sources */,
+				AB7B79DA2444A7A5005F21AD /* CountryDataView.swift in Sources */,
 				AB547C2C2441B812008C4119 /* AppDelegate.swift in Sources */,
 				AB547C472441B973008C4119 /* CovidRoute.swift in Sources */,
 				AB547C492441BA7B008C4119 /* APIProvider.swift in Sources */,
@@ -317,6 +326,7 @@
 				AB69EBE22441FA12009527D9 /* CovidAnnotation.swift in Sources */,
 				AB192AB42441D3E200C9F6EF /* CovidStateModel.swift in Sources */,
 				ABD34CE32443307000F32B84 /* CovidFAQRoute.swift in Sources */,
+				AB7B79DC2444A93E005F21AD /* Int64+NumberFormatter.swift in Sources */,
 				ABD34CE52443312400F32B84 /* CovidFAQModel.swift in Sources */,
 				AB47FFC02441EB3F0096E00C /* MapContainerView.swift in Sources */,
 				ABD34CEC2443354400F32B84 /* CovidAnswerView.swift in Sources */,
@@ -468,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Covid-Tracker/Covid-Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid-Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = N8AX386RTP;
@@ -479,6 +490,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexeyVoronov.Covid-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -488,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Covid-Tracker/Covid-Tracker.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid-Tracker/Preview Content\"";
 				DEVELOPMENT_TEAM = N8AX386RTP;
@@ -499,6 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.AlexeyVoronov.Covid-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -22,9 +22,9 @@ class CovidAnnotation: NSObject, MKAnnotation {
     init(country: Country) {
         self.title = country.name
         self.subtitle = """
-        Confirmed: \(country.confirmed).
-        Deaths: \(country.deaths).
-        Recovered: \(country.recovered)
+        Confirmed: \(country.confirmed.formattedNumber).
+        Deaths: \(country.deaths.formattedNumber).
+        Recovered: \(country.recovered.formattedNumber)
         """
         self.coordinate = CLLocationCoordinate2D(latitude: country.latitude, longitude: country.longitude)
         self.country = country

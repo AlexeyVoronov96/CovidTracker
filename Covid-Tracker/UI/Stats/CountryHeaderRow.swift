@@ -10,22 +10,17 @@ import SwiftUI
 
 struct CountryHeaderRow: View {
     var body: some View {
-        HStack(alignment: .center) {
-            Text(verbatim: "Country")
-                .font(.subheadline)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
-            Text(verbatim: "Conf.")
-                .font(.subheadline)
-                .frame(width: 60)
-            Divider()
-            Text(verbatim: "Deaths")
-                .font(.subheadline)
-                .frame(width: 60)
-            Divider()
-            Text(verbatim: "Recov.")
-                .font(.subheadline)
-                .frame(width: 60)
+        GeometryReader { geometry in
+            HStack(alignment: .center) {
+                Text(verbatim: "Country")
+                    .font(.subheadline)
+                    .frame(width: geometry.size.width / 3)
+                Divider()
+                Text(verbatim: "Active cases")
+                    .font(.subheadline)
+                    .frame(width: geometry.size.width / 3 * 2)
+            }
+            .padding(.trailing, 8)
         }
     }
 }

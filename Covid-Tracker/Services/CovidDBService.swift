@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Combine
 
 final class CovidDBService {
     
@@ -29,11 +30,7 @@ final class CovidDBService {
         
         fetchRequest.predicate = NSPredicate(format: "id == %i", Int16(country.id))
         
-        do {
-            let fetchedCountries = try CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
-            return fetchedCountries.first
-        } catch {
-            return nil
-        }
+        let fetchedCountries = try? CoreDataManager.shared.managedObjectContext.fetch(fetchRequest)
+        return fetchedCountries?.first
     }
 }

@@ -13,7 +13,7 @@ struct MapContainerView: View {
     
     var body: some View {
         MapView()
-            .edgesIgnoringSafeArea(.top)
+            .edgesIgnoringSafeArea([.top, .leading, .trailing])
             .environment(\.managedObjectContext, managedObjectContext)
     }
 }

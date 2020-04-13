@@ -35,33 +35,13 @@ final class GlobalDataViewModel: ObservableObject {
     
     func configure() {
         loadData
-            .flatMap { [weak self] _ -> AnyPublisher<CovidStates?, Error> in
+            .flatMap { [weak self] _ -> AnyPublisher<CovidCountryResponse, Error> in
                 guard let self = self else {
                     return Empty(completeImmediately: true)
                         .eraseToAnyPublisher()
                 }
-                return self.getData()
+                return self.getCountriesData()
             }
-            .replaceError(with: nil)
-            .eraseToAnyPublisher()
-            .receive(on: RunLoop.main)
-            .assign(to: \.globalData, on: self)
-            .store(in: &bag)
-    }
-    
-    func getData() -> AnyPublisher<CovidStates?, Error> {
-        let globalDataRequest = covidService.countriesData()
-        let confirmedRequest = covidService.confirmedData()
-        let deathsRequest = covidService.deathsData()
-        let recoveredRequest = covidService.recoveredData()
-        
-        let requests = Publishers
-            .Zip4(globalDataRequest, confirmedRequest, deathsRequest, recoveredRequest)
-            .share()
-        
-        requests
-            .map { $0.0 }
-            .receive(on: RunLoop.main)
             .replaceError(with: [])
             .eraseToAnyPublisher()
             .sink { [weak self] countries in
@@ -70,8 +50,41 @@ final class GlobalDataViewModel: ObservableObject {
             }
             .store(in: &bag)
         
+        loadData
+            .flatMap { [weak self] _ -> AnyPublisher<CovidStates?, Error> in
+                guard let self = self else {
+                    return Empty(completeImmediately: true)
+                        .eraseToAnyPublisher()
+                }
+                return self.getGlobalData()
+            }
+            .replaceError(with: nil)
+            .eraseToAnyPublisher()
+            .receive(on: RunLoop.main)
+            .assign(to: \.globalData, on: self)
+            .store(in: &bag)
+    }
+}
+
+private extension GlobalDataViewModel {
+    
+    func getCountriesData() -> AnyPublisher<CovidCountryResponse, Error> {
+        return covidService.countriesData()
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
+    func getGlobalData() -> AnyPublisher<CovidStates?, Error> {
+        let confirmedRequest = covidService.confirmedData()
+        let deathsRequest = covidService.deathsData()
+        let recoveredRequest = covidService.recoveredData()
+        
+        let requests = Publishers
+            .Zip3(confirmedRequest, deathsRequest, recoveredRequest)
+            .share()
+        
         return requests
-            .map { CovidStates(confirmed: $0.1, deaths: $0.2, recovered: $0.3) }
+            .map { CovidStates(confirmed: $0.0, deaths: $0.1, recovered: $0.2) }
             .eraseToAnyPublisher()
     }
 }

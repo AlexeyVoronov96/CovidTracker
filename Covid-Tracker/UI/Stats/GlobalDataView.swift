@@ -29,8 +29,11 @@ struct GlobalDataView: View {
                     if !countries.isEmpty {
                         CountryHeaderRow()
                     }
-                    ForEach(countries, id: \.self) { country in
-                        CountryRow(country: country)
+                    ForEach(countries, id: \.id) { country in
+                        NavigationLink(
+                        destination: CountryDataView(country: country)) {
+                            CountryRow(country: country)
+                        }
                     }
                 }
             }

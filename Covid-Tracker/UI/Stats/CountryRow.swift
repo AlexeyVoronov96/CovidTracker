@@ -12,22 +12,23 @@ struct CountryRow: View {
     let country: Country
     
     var body: some View {
-        HStack(alignment: .center) {
-            Text(verbatim: country.name ?? "")
-                .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
-            Text(verbatim: "\(country.confirmed)")
-                .font(.subheadline)
-                .frame(width: 60)
-            Divider()
-            Text(verbatim: "\(country.deaths)")
-                .font(.subheadline)
-                .frame(width: 60)
-            Divider()
-            Text(verbatim: "\(country.recovered)")
-                .font(.subheadline)
-                .frame(width: 60)
+        GeometryReader { geometry in
+            HStack(alignment: .center) {
+                Text(verbatim: self.country.name ?? "")
+                    .font(.headline)
+                    .frame(width: geometry.size.width / 3)
+                Divider()
+                HStack(alignment: .center, spacing: 8) {
+                    Text(verbatim: "\(self.country.active.formattedNumber)")
+                        .font(.subheadline)
+                    if self.country.newCases != 0 {
+                        Text(verbatim: "(\(self.country.newCases.formattedNumber))")
+                            .font(.subheadline)
+                            .foregroundColor(self.country.newCases > 0 ? .red : .green)
+                    }
+                }
+                .frame(width: geometry.size.width / 3 * 2)
+            }
         }
     }
 }
